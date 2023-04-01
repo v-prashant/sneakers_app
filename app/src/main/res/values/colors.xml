@@ -16,4 +16,13 @@
     <color name="color_text_dark_medium">#99000000</color>
     <color name="color_text_dark_low">#61000000</color>
 
+    <color name="color_title">#FF3C00</color>
+    <color name="item_color">#FF3C00</color>
+
+    <color name="color_chip1">#FF3C00</color>
+    <color name="color_chip2">#FFA500</color>
+    <color name="color_chip3">#C18F33</color>
+
+    <color name="color_default_chip">#ECEBE7</color>
+
 </resources>

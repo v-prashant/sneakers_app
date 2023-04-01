@@ -1,0 +1,31 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.sneakersapp.ui.sneakers.HomeFragment"
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.sneakersapp.ui.cart_details.CartFragment"
+        android:label="Cart" />
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.sneakersapp.ui.sneakers_details.SneakerDetailsFragment"
+        android:label="Details" />
+
+
+</navigation>

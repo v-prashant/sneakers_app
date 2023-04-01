@@ -11,7 +11,7 @@ android {
     compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
 
     defaultConfig {
-        applicationId "com.example.trendingapp"
+        applicationId "com.example.sneakersapp"
         minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
         targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
         versionCode Integer.parseInt(project.APP_VERSION_CODE)

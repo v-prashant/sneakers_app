@@ -6,6 +6,7 @@ import com.example.sneakersapp.api.Resource
 import com.example.sneakersapp.base.BaseViewModel
 import com.example.sneakersapp.network.response.GetCartResponse
 import com.example.sneakersapp.network.response.GetSneakerResponse
+import com.example.sneakersapp.ui.cart_details.CartItem
 import com.example.sneakersapp.utils.common.setSuccess
 import javax.inject.Inject
 
@@ -17,6 +18,9 @@ class HomeVM @Inject constructor(val repository: HomeRepository) :
 
     val tempList = ArrayList<SneakerItem>()
     var dataList = ArrayList<SneakerItem>()
+    lateinit var cartList: ArrayList<CartItem>
+    var sneaker: SneakerItem? = null
+
     lateinit var bundle: Bundle
 
     fun getSneakerList() {

@@ -18,7 +18,6 @@ class CartFragment: Fragment() {
 
     private var navController: NavController? = null
     private var binding: FragmentCartBinding? = null
-    private lateinit var dataList: ArrayList<CartItem>
 
     @Inject
     lateinit var vm: HomeVM
@@ -51,14 +50,14 @@ class CartFragment: Fragment() {
 
     private fun onGetCartResponse(items: ArrayList<CartItem>?) {
         if (items != null) {
-            dataList = items
+            vm.cartList = items
         }
-        updateUI(dataList)
+        updateUI(vm.cartList)
     }
 
     private fun onClickListener() {
             binding?.btnCheckOut?.setOnClickListener {
-                dataList.clear()
+                vm.cartList.clear()
                 SneakerFunction.checkOut()
                 Toast.makeText(requireContext(), "Check Out Successfully", Toast.LENGTH_SHORT).show()
                 navController?.navigate(R.id.homeFragment)
@@ -66,7 +65,7 @@ class CartFragment: Fragment() {
     }
 
     fun updateUI(dataList: ArrayList<CartItem>) {
-        this.dataList = dataList
+        this.vm.cartList = dataList
         with(binding!!){
             if(dataList.isEmpty()){
                 tvOrder.visibility = View.GONE

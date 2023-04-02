@@ -13,8 +13,8 @@ import com.example.sneakersapp.network.utils.SneakerFunction
 
 class CartAdapter(
     var context: Context,
-    var dataList: ArrayList<CartItem>,
-    val cartFragment: CartFragment,
+    private var dataList: ArrayList<CartItem>,
+    private val cartFragment: CartFragment,
 ) : RecyclerView.Adapter<CartAdapterViewHolder>() {
 
     override fun onCreateViewHolder(

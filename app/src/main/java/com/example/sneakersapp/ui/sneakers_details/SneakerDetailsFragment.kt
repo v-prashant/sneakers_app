@@ -5,31 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.sneakersapp.R
-import com.example.sneakersapp.databinding.FragmentHomeBinding
 import com.example.sneakersapp.databinding.FragmentSneakerDetailsBinding
 import com.example.sneakersapp.network.utils.SneakerFunction
 import com.example.sneakersapp.ui.cart_details.CartItem
 import com.example.sneakersapp.ui.home.HomeVM
 import com.example.sneakersapp.ui.home.SneakerItem
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.clp_toast_with_icon.view.*
-import kotlinx.coroutines.channels.ProducerScope
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class SneakerDetailsFragment: BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentSneakerDetailsBinding
-    private var sneaker: SneakerItem? = null
 
     @Inject
     lateinit var vm: HomeVM
@@ -40,7 +32,7 @@ class SneakerDetailsFragment: BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSneakerDetailsBinding.inflate(inflater, container, false)
-        return binding.root;
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,16 +43,16 @@ class SneakerDetailsFragment: BottomSheetDialogFragment() {
     }
 
     private fun initView() {
-        sneaker = vm.bundle.getSerializable("sneaker") as? SneakerItem
+        vm.sneaker = vm.bundle.getSerializable("sneaker") as? SneakerItem
 
         with(binding){
             Glide.with(requireActivity())
-                .load(sneaker?.imageUrl)
+                .load(vm.sneaker?.imageUrl)
                 .placeholder(R.drawable.loading_image_placeholder)
                 .into(ivSneaker)
 
-            tvTitle.text = sneaker?.name
-            tvPrice.text = "Price : ₹" + sneaker?.price
+            tvTitle.text = vm.sneaker?.name
+            tvPrice.text = "Price : ₹" + vm.sneaker?.price
         }
 
     }
@@ -68,7 +60,7 @@ class SneakerDetailsFragment: BottomSheetDialogFragment() {
     private fun onClickListener() {
         binding.btnAddToCart.setOnClickListener {
 
-            val cart = CartItem(sneaker?.imageUrl, sneaker?.price, sneaker?.name, getChipSize(), getChipColor())
+            val cart = CartItem(vm.sneaker?.imageUrl, vm.sneaker?.price, vm.sneaker?.name, getChipSize(), getChipColor())
             SneakerFunction.addToCart(cart)
 
             Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show()

@@ -1,36 +1,36 @@
 
-#Features
+**Features**
 
-Display a grid of sneakers with the image, price, and name of the sneaker.
+- Display a grid of sneakers with the image, price, and name of the sneaker.
 
-Search feature to filter sneakers.
+- Search feature to filter sneakers.
 
-View the details of a selected sneaker, including its title, name, image, brand, year of release, and price.
+- View the details of a selected sneaker, including its title, name, image, brand, year of release, and price.
 
-Add selected sneakers to a checkout cart.
+- Add selected sneakers to a checkout cart.
 
-Remove items from the checkout cart.
+- Remove items from the checkout cart.
 
-Display all sneakers in the checkout cart with their image and price.
+- Display all sneakers in the checkout cart with their image and price.
 
-Display the total price of all sneakers in the checkout cart.
+- Display the total price of all sneakers in the checkout cart.
 
-#Tech Stack
+**Tech Stack**
 
-Kotlin
+- Kotlin
 
-MVVM architecture
+- MVVM architecture
 
-ViewModel
+- ViewModel
 
-LiveData
+- LiveData
 
-Navigation Graph
+- Navigation Graph
 
-Glide
+- Glide
 
-Dagger-Hilt
+- Dagger-Hilt
 
-Extension Function
+- Extension Function
 
-Scope Function
+- Scope Function

@@ -11,4 +11,7 @@
     <string name="size_uk">Size (UK):</string>
     <string name="colour">Colour:</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="cart">Cart</string>
+    <string name="your_order">Your Order</string>
+    <string name="checkout">Check Out</string>
 </resources>

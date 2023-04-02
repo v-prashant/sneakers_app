@@ -7,4 +7,6 @@ import javax.inject.Inject
 class HomeRepository @Inject constructor(private val apiService: APIService) {
      fun getSneakerList() = SneakerFunction.getSneakerList()
 
+     fun getCartList() = SneakerFunction.getCartList()
+
 }

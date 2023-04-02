@@ -1,8 +1,10 @@
 package com.example.sneakersapp.ui.sneakers
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
@@ -52,7 +54,8 @@ class SneakersAdapter(
              tvPrice.text = "₹ " + dataList[holder.adapterPosition].price
 
              root.setOnClickListener {
-                  navController?.navigate(R.id.detailsFragment)
+                  val bundle = bundleOf("sneaker" to dataList[holder.adapterPosition])
+                  navController?.navigate(R.id.detailsFragment, bundle)
              }
 
          }

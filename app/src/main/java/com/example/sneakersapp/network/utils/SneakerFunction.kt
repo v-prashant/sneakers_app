@@ -1,12 +1,16 @@
 package com.example.sneakersapp.network.utils
 
+import com.example.sneakersapp.network.response.GetCartResponse
 import com.example.sneakersapp.network.response.GetSneakerResponse
+import com.example.sneakersapp.ui.cart_details.CartItem
 import com.example.sneakersapp.ui.home.SneakerItem
+import java.text.FieldPosition
 
 object SneakerFunction {
 
     private val imageUrls = ArrayList<String?>()
     private val sneakerList = ArrayList<SneakerItem>()
+    private val cartList = ArrayList<CartItem>()
 
     init {
         imageUrls.add("https://media.istockphoto.com/id/1425880214/photo/leather-mens-shoe-on-white-background.jpg?s=1024x1024&w=is&k=20&c=A181QXjB5X_Ny2ARjWO7QU6Q4Y1TxInrVX9WbodzBqE=")
@@ -33,6 +37,23 @@ object SneakerFunction {
 
     fun getSneakerList(): GetSneakerResponse {
         return GetSneakerResponse(sneakerList)
+    }
+
+    fun addToCart(sneaker: CartItem) {
+        cartList.add(sneaker)
+    }
+
+    fun deleteFromCart(position: Int){
+        if(cartList.isEmpty() && position < cartList.size)
+            cartList.removeAt(position)
+    }
+
+    fun checkOut() {
+        cartList.clear()
+    }
+
+    fun getCartList(): GetCartResponse {
+        return GetCartResponse(cartList)
     }
 
 }

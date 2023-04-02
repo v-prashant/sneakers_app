@@ -18,12 +18,14 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_24"
-        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_28"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_sneaker"
         tools:text="Sneaker Title" />
@@ -33,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_16"
-        android:textSize="@dimen/sp_24"
         android:text="@string/size_uk"
+        android:textSize="@dimen/sp_22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
@@ -44,33 +46,38 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
         android:layout_marginTop="@dimen/dp_10"
-        app:layout_constraintStart_toEndOf="@id/tv_size"
+        app:singleSelection="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_size"
         app:layout_constraintTop_toBottomOf="@id/tv_title">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_size1"
             android:layout_width="@dimen/dp_80"
             android:layout_height="wrap_content"
+            android:text="7"
             android:textAlignment="center"
-            app:chipBackgroundColor="@color/chip_color"
-            android:text="7" />
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_color" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_size2"
             android:layout_width="@dimen/dp_80"
             android:layout_height="wrap_content"
-            app:chipBackgroundColor="@color/chip_color"
+            android:text="8"
             android:textAlignment="center"
-            android:text="8" />
+            android:checkable="true"
+            android:checked="true"
+            app:chipBackgroundColor="@color/chip_color" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_size3"
             android:layout_width="@dimen/dp_80"
             android:layout_height="wrap_content"
-            app:chipBackgroundColor="@color/chip_color"
+            android:text="9"
             android:textAlignment="center"
-            android:text="9" />
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_color" />
     </com.google.android.material.chip.ChipGroup>
 
     <TextView
@@ -78,8 +85,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_24"
-        android:textSize="@dimen/sp_24"
         android:text="@string/colour"
+        android:textSize="@dimen/sp_22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_size" />
 
@@ -89,32 +96,35 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
         android:layout_marginTop="@dimen/dp_16"
-        app:layout_constraintStart_toEndOf="@id/tv_size"
         app:layout_constraintEnd_toEndOf="parent"
+        app:singleSelection="true"
+        app:layout_constraintStart_toEndOf="@id/tv_size"
         app:layout_constraintTop_toBottomOf="@id/tv_size">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_color1"
             android:layout_width="@dimen/dp_80"
             android:layout_height="wrap_content"
-            app:chipBackgroundColor="@color/color_chip1"
-            android:text="  " />
+            android:checkable="true"
+
+            app:chipBackgroundColor="@color/color_chip1" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_color2"
             android:layout_width="@dimen/dp_80"
             android:layout_height="wrap_content"
+            android:checkable="true"
             android:textAlignment="center"
-            app:chipBackgroundColor="@color/color_chip2"
-            android:text="  " />
+            app:chipBackgroundColor="@color/color_chip2" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/chip_color3"
             android:layout_width="@dimen/dp_80"
             android:layout_height="wrap_content"
+            android:checkable="true"
             android:textAlignment="center"
-            app:chipBackgroundColor="@color/color_chip3"
-            android:text="  " />
+            android:checked="true"
+            app:chipBackgroundColor="@color/color_chip3" />
     </com.google.android.material.chip.ChipGroup>
 
 
@@ -123,23 +133,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_48"
-        android:textSize="@dimen/sp_24"
-        tools:text="Price: $500"
         android:textColor="@color/color_title"
+        android:textSize="@dimen/sp_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cg_color" />
+        app:layout_constraintTop_toBottomOf="@id/cg_color"
+        tools:text="Price: $500" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_add_to_cart_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/add_to_cart"
-        app:cornerRadius="4dp"
-        app:backgroundTint="@color/color_title"
-        app:strokeWidth="0dp"
-        app:rippleColor="@color/color_grey"
-        android:layout_marginTop="@dimen/dp_40"
         android:layout_marginStart="@dimen/dp_32"
-        app:layout_constraintTop_toBottomOf="@id/cg_color"
+        android:layout_marginTop="@dimen/dp_40"
+        android:text="@string/add_to_cart"
+        app:backgroundTint="@color/color_title"
+        app:cornerRadius="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_price"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/cg_color"
+        app:rippleColor="@color/color_grey"
+        app:strokeWidth="0dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

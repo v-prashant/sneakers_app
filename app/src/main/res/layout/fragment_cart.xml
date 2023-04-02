@@ -7,78 +7,127 @@
         android:id="@+id/action_cart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.TrendingActivity">
+        tools:context=".ui.home.HomeActivity">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/txn_app_bar_layout"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/white"
-            app:elevation="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/txn_toolbar"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                tools:context=".ui.home.HomeActivity">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:text="@string/cart"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/color_title"
+                    android:textSize="@dimen/sp_26"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/txn_app_bar_title"
-                        style="@style/TextAppearance.MaterialComponents.Subtitle1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title"
-                        android:textAllCaps="true"
-                        android:textColor="@color/color_title"
-                        android:textSize="@dimen/sp_26"
-                        android:layout_marginTop="@dimen/dp_24"
-                        android:layout_marginStart="@dimen/dp_12"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_sneakers"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/dp_16"
+                    app:layout_goneMarginTop="@dimen/dp_96"
+                    tools:listitem="@layout/item_cart"
+                    tools:itemCount="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-                    <ImageView
-                        android:id="@+id/iv_search"
-                        style="@style/TextAppearance.MaterialComponents.Subtitle1"
-                        android:layout_width="@dimen/dp_32"
-                        android:layout_height="@dimen/dp_32"
-                        android:src="@drawable/ic_search"
-                        android:layout_marginTop="@dimen/dp_24"
-                        android:layout_marginEnd="@dimen/dp_16"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tv_order"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:text="@string/your_order"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_26"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_sneakers" />
 
-                    <EditText
-                        android:id="@+id/search_bar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dp_8"
-                        android:layout_marginTop="@dimen/dp_24"
-                        android:layout_marginEnd="@dimen/dp_8"
-                        android:hint="@string/search_by_name"
-                        android:visibility="gone"
-                        tools:visibility="visible"
-                        android:inputType="text"
-                        android:padding="10dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tv_subtotal"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginStart="@dimen/dp_16"
+                    tools:text="Subtotal : $398"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_order" />
 
+                <TextView
+                    android:id="@+id/tv_taxes"
+                    style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginStart="@dimen/dp_16"
+                    tools:text="Taxes and Charges : $40"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_20"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_subtotal" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.AppBarLayout>
+                <TextView
+                    android:id="@+id/tv_total_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/color_title"
+                    android:textSize="@dimen/sp_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_taxes"
+                    tools:text="Price: $500" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_add_to_cart_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_32"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:text="@string/checkout"
+                    android:textAllCaps="false"
+                    app:backgroundTint="@color/color_title"
+                    app:cornerRadius="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_total_amount"
+                    app:layout_constraintTop_toBottomOf="@id/tv_taxes"
+                    app:rippleColor="@color/color_grey"
+                    app:strokeWidth="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

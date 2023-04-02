@@ -16,6 +16,8 @@ import com.example.sneakersapp.network.utils.SneakerFunction
 import com.example.sneakersapp.ui.cart_details.CartItem
 import com.example.sneakersapp.ui.home.HomeVM
 import com.example.sneakersapp.ui.home.SneakerItem
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,9 +26,8 @@ import kotlinx.coroutines.channels.ProducerScope
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SneakerDetailsFragment: Fragment() {
+class SneakerDetailsFragment: BottomSheetDialogFragment() {
 
-    private var navController: NavController? = null
     private lateinit var binding: FragmentSneakerDetailsBinding
     private var sneaker: SneakerItem? = null
 
@@ -45,7 +46,6 @@ class SneakerDetailsFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vm.bundle = requireArguments()
-        navController = Navigation.findNavController(view)
         initView()
         onClickListener()
     }
@@ -60,28 +60,29 @@ class SneakerDetailsFragment: Fragment() {
                 .into(ivSneaker)
 
             tvTitle.text = sneaker?.name
-            tvPrice.text = "Price: ₹" + sneaker?.price
+            tvPrice.text = "Price : ₹" + sneaker?.price
         }
 
     }
 
     private fun onClickListener() {
-        binding.btnAddToCartButton.setOnClickListener {
+        binding.btnAddToCart.setOnClickListener {
 
             val cart = CartItem(sneaker?.imageUrl, sneaker?.price, sneaker?.name, getChipSize(), getChipColor())
             SneakerFunction.addToCart(cart)
 
             Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show()
-            navController?.navigateUp()
+            dismiss()
         }
     }
 
     private fun getChipColor(): String {
-        val chipGroup: ChipGroup = view?.findViewById(R.id.cg_size)!!
-        return chipGroup.checkedChipId.let { checkedChipId ->
-            val selectedChip: Chip? = view?.findViewById(checkedChipId)
-            selectedChip?.chipBackgroundColor.toString()
-        }
+        return if(binding.chipColor1.isChecked)
+            "RED"
+        else if(binding.chipColor2.isChecked)
+            "YELLOW"
+        else
+            "LIGHT GREY"
     }
 
     private fun getChipSize(): String {

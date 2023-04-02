@@ -61,6 +61,8 @@
                     android:layout_marginTop="@dimen/dp_24"
                     android:layout_marginStart="@dimen/dp_16"
                     android:text="@string/your_order"
+                    android:visibility="gone"
+                    tools:visibility="visible"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -78,7 +80,7 @@
                     tools:text="Subtotal : $398"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/blue"
                     android:textSize="@dimen/sp_20"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_order" />
@@ -90,10 +92,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_4"
                     android:layout_marginStart="@dimen/dp_16"
+                    android:visibility="gone"
+                    tools:visibility="visible"
                     tools:text="Taxes and Charges : $40"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/blue"
                     android:textSize="@dimen/sp_20"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_subtotal" />
@@ -102,22 +106,28 @@
                     android:id="@+id/tv_total_amount"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_32"
+                    android:layout_marginTop="@dimen/dp_30"
                     android:layout_marginStart="16dp"
-                    android:textColor="@color/color_title"
-                    android:textSize="@dimen/sp_24"
+                    android:textColor="@color/blue"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:textSize="@dimen/sp_22"
+                    app:layout_constraintEnd_toStartOf="@id/btn_check_out"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_taxes"
                     tools:text="Price: $500" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_add_to_cart_button"
+                    android:id="@+id/btn_check_out"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp_32"
+                    android:layout_marginEnd="@dimen/dp_16"
                     android:layout_marginTop="@dimen/dp_24"
                     android:text="@string/checkout"
                     android:textAllCaps="false"
+                    android:visibility="gone"
+                    tools:visibility="visible"
                     app:backgroundTint="@color/color_title"
                     app:cornerRadius="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -128,6 +138,19 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
+
+        <TextView
+            android:id="@+id/tv_empty_msg"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_45"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/cart_is_empty" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

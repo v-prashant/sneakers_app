@@ -1,6 +1,8 @@
 package com.example.sneakersapp.ui.home
 
 import android.os.Bundle
+import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -10,6 +12,7 @@ import com.example.sneakersapp.base.BaseActivity
 import com.example.sneakersapp.databinding.ActivityHomeBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
 @AndroidEntryPoint
 class HomeActivity : BaseActivity<HomeVM, ActivityHomeBinding>() {
@@ -20,7 +23,6 @@ class HomeActivity : BaseActivity<HomeVM, ActivityHomeBinding>() {
         super.onCreate(savedInstanceState)
         setUpBottomSheet()
         initViews()
-        onClickListener()
     }
 
     private fun setUpBottomSheet() {
@@ -28,11 +30,6 @@ class HomeActivity : BaseActivity<HomeVM, ActivityHomeBinding>() {
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
     }
-
-    private fun onClickListener() {
-
-    }
-
     private fun initViews() {
 
     }

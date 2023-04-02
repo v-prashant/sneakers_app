@@ -32,64 +32,64 @@
             app:layout_constraintWidth_percent=".4"
             />
 
-        <TextView
-            android:id="@+id/tv_size"
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_18"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_image"
-            tools:text="Size   : 6" />
-
-        <TextView
-            android:id="@+id/tv_color"
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_18"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_size"
-            tools:text="Color : Oranage" />
 
         <TextView
             android:id="@+id/tv_name"
             style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:gravity="center"
+            android:layout_marginStart="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_24"
+            android:gravity="start"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_16"
-            app:layout_constraintBottom_toBottomOf="@id/iv_image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/iv_image"
             app:layout_constraintTop_toTopOf="@id/iv_image"
-            app:layout_constraintVertical_bias="0.378"
             tools:text="Nike Air" />
 
         <TextView
-            android:id="@+id/tv_price"
+            android:id="@+id/tv_color"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            tools:text="$199"
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_24"
-            android:textColor="@color/color_title"
+            android:layout_marginStart="@dimen/dp_32"
+            android:gravity="start"
+            android:textColor="@color/black"
             android:textSize="@dimen/sp_16"
-            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_image"
-            app:layout_constraintTop_toTopOf="@id/iv_image"
-            app:layout_constraintBottom_toBottomOf="@id/iv_image"
-            />
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="Color : Oranage" />
 
+        <TextView
+            android:id="@+id/tv_size"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_32"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_color"
+            tools:text="Size   : 6" />
 
-     </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_price"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_8"
+            android:gravity="start"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_size"
+            tools:text="$199" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -14,4 +14,6 @@
     <string name="cart">Cart</string>
     <string name="your_order">Your Order</string>
     <string name="checkout">Check Out</string>
+    <string name="home">Home</string>
+    <string name="cart_is_empty">Cart Is Empty</string>
 </resources>

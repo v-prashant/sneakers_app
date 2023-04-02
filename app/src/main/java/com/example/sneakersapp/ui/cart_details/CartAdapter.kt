@@ -14,6 +14,7 @@ import com.example.sneakersapp.network.utils.SneakerFunction
 class CartAdapter(
     var context: Context,
     var dataList: ArrayList<CartItem>,
+    val cartFragment: CartFragment,
 ) : RecyclerView.Adapter<CartAdapterViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -54,9 +55,10 @@ class CartAdapter(
 
              ivDelete.setOnClickListener {
                  dataList.removeAt(holder.adapterPosition)
+                 cartFragment.updateUI(dataList)
                  SneakerFunction.deleteFromCart(holder.adapterPosition)
                  Toast.makeText(context, "Removed from Cart", Toast.LENGTH_SHORT).show()
-                 notifyChange()
+                 notifyItemRemoved(holder.adapterPosition)
              }
 
          }

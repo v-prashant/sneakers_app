@@ -12,7 +12,6 @@ import androidx.navigation.Navigation
 import com.example.sneakersapp.databinding.FragmentHomeBinding
 import com.example.sneakersapp.network.response.GetSneakerResponse
 import com.example.sneakersapp.ui.home.HomeVM
-import com.example.sneakersapp.ui.home.SneakerItem
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -47,6 +46,11 @@ class HomeFragment : Fragment() {
         vm.getSneakerList()
     }
 
+    override fun onStop() {
+        super.onStop()
+        binding?.searchBar?.text?.clear()
+    }
+
     private fun observeLiveData() {
          vm.getSneakerLiveData.observe(requireActivity()){
              getSneakerResponse(it.data)
@@ -57,7 +61,7 @@ class HomeFragment : Fragment() {
          if(data != null){
              vm.dataList.clear()
              vm.dataList.addAll(data.items)
-             binding?.rvSneakers?.adapter = SneakersAdapter(requireContext(), vm.dataList, navController)
+             binding?.rvSneakers?.adapter = SneakersAdapter(requireContext(), vm.dataList, navController, requireActivity())
          }
     }
 

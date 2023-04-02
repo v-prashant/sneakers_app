@@ -1,158 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_sneaker"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="H,3:2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/loading_image_placeholder" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/round_bottom_sheet"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tv_title"
-        style="@style/TextAppearance.MaterialComponents.Subtitle1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_24"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="@dimen/sp_28"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_sneaker"
-        tools:text="Sneaker Title" />
+        <ImageView
+            android:id="@+id/iv_sneaker"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H,3:2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/loading_image_placeholder" />
 
-    <TextView
-        android:id="@+id/tv_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_16"
-        android:text="@string/size_uk"
-        android:textSize="@dimen/sp_22"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/cg_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_10"
-        app:singleSelection="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_size"
-        app:layout_constraintTop_toBottomOf="@id/tv_title">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_size1"
-            android:layout_width="@dimen/dp_80"
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="7"
+            android:layout_marginTop="@dimen/dp_24"
             android:textAlignment="center"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/chip_color" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_sneaker"
+            tools:text="Sneaker Title" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_size2"
-            android:layout_width="@dimen/dp_80"
+        <TextView
+            android:id="@+id/tv_size"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="8"
-            android:textAlignment="center"
-            android:checkable="true"
-            android:checked="true"
-            app:chipBackgroundColor="@color/chip_color" />
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="@string/size_uk"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cg_size"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_size3"
-            android:layout_width="@dimen/dp_80"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_size"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9"
-            android:textAlignment="center"
-            android:checkable="true"
-            app:chipBackgroundColor="@color/chip_color" />
-    </com.google.android.material.chip.ChipGroup>
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_size"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:singleSelection="true">
 
-    <TextView
-        android:id="@+id/tv_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_24"
-        android:text="@string/colour"
-        android:textSize="@dimen/sp_22"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_size" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_size1"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="7"
+                android:textAlignment="center"
+                app:chipBackgroundColor="@color/chip_color" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/cg_color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:singleSelection="true"
-        app:layout_constraintStart_toEndOf="@id/tv_size"
-        app:layout_constraintTop_toBottomOf="@id/tv_size">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_size2"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
+                android:text="8"
+                android:textAlignment="center"
+                app:chipBackgroundColor="@color/chip_color" />
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_color1"
-            android:layout_width="@dimen/dp_80"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_size3"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:text="9"
+                android:textAlignment="center"
+                app:chipBackgroundColor="@color/chip_color" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_color"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:checkable="true"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="@string/colour"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintEnd_toStartOf="@id/cg_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_size" />
 
-            app:chipBackgroundColor="@color/color_chip1" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_color2"
-            android:layout_width="@dimen/dp_80"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_color"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checkable="true"
-            android:textAlignment="center"
-            app:chipBackgroundColor="@color/color_chip2" />
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_size"
+            app:layout_constraintTop_toBottomOf="@id/tv_size"
+            app:singleSelection="true">
 
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_color3"
-            android:layout_width="@dimen/dp_80"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_color1"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+
+                app:chipBackgroundColor="@color/color_chip1" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_color2"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:textAlignment="center"
+                app:chipBackgroundColor="@color/color_chip2" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_color3"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:checked="true"
+                android:textAlignment="center"
+                app:chipBackgroundColor="@color/color_chip3" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:checkable="true"
-            android:textAlignment="center"
-            android:checked="true"
-            app:chipBackgroundColor="@color/color_chip3" />
-    </com.google.android.material.chip.ChipGroup>
+            android:layout_marginTop="@dimen/dp_48"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/sp_22"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_add_to_cart"
+            app:layout_constraintTop_toBottomOf="@id/cg_color"
+            tools:text="Price: $500" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add_to_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_32"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="@string/add_to_cart"
+            app:backgroundTint="@color/color_title"
+            app:cornerRadius="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_price"
+            app:layout_constraintTop_toBottomOf="@id/cg_color"
+            app:rippleColor="@color/color_grey"
+            app:strokeWidth="0dp" />
 
 
-    <TextView
-        android:id="@+id/tv_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_48"
-        android:textColor="@color/color_title"
-        android:textSize="@dimen/sp_24"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cg_color"
-        tools:text="Price: $500" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_add_to_cart_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_32"
-        android:layout_marginTop="@dimen/dp_40"
-        android:text="@string/add_to_cart"
-        app:backgroundTint="@color/color_title"
-        app:cornerRadius="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_price"
-        app:layout_constraintTop_toBottomOf="@id/cg_color"
-        app:rippleColor="@color/color_grey"
-        app:strokeWidth="0dp" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

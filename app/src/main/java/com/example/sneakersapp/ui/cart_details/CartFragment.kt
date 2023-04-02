@@ -1,9 +1,7 @@
 package com.example.sneakersapp.ui.cart_details
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
@@ -36,7 +34,6 @@ class CartFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        vm.getCartList()
         initObserver()
         onClickListener()
     }
@@ -56,27 +53,49 @@ class CartFragment: Fragment() {
         if (items != null) {
             dataList = items
         }
-
-        var subTotal = 0.0
-        if(dataList.isEmpty()){
-            subTotal = items!!.sumOf {
-                it.price?.toDouble() ?: 0.0
-            }
-            val taxes = 0.18*subTotal
-            binding?.rvSneakers?.adapter = CartAdapter(requireActivity(), dataList)
-            binding?.tvSubtotal?.text = "subtotal : ₹"+subTotal.toString()
-            binding?.tvTaxes?.text = "Taxes and Charges : ₹"+taxes.toString()
-            binding?.tvTotalAmount?.text = "Total : ₹"+(subTotal+taxes).toString()
-        }
+        updateUI(dataList)
     }
 
     private fun onClickListener() {
-            binding?.btnAddToCartButton?.setOnClickListener {
+            binding?.btnCheckOut?.setOnClickListener {
                 dataList.clear()
                 SneakerFunction.checkOut()
-                Toast.makeText(requireContext(), "Added to Cart", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Check Out Successfully", Toast.LENGTH_SHORT).show()
                 navController?.navigate(R.id.homeFragment)
             }
+    }
+
+    fun updateUI(dataList: ArrayList<CartItem>) {
+        this.dataList = dataList
+        with(binding!!){
+            if(dataList.isEmpty()){
+                tvOrder.visibility = View.GONE
+                tvSubtotal.visibility = View.GONE
+                tvTaxes.visibility = View.GONE
+                tvTotalAmount.visibility = View.GONE
+                btnCheckOut.visibility = View.GONE
+                tvEmptyMsg.visibility = View.VISIBLE
+            }else{
+                tvOrder.visibility = View.VISIBLE
+                tvSubtotal.visibility = View.VISIBLE
+                tvTaxes.visibility = View.VISIBLE
+                tvTotalAmount.visibility = View.VISIBLE
+                btnCheckOut.visibility = View.VISIBLE
+                tvEmptyMsg.visibility = View.GONE
+            }
+
+            if(dataList.isNotEmpty()){
+                val subTotal = dataList.sumOf {
+                    it.price ?: 0
+                }
+                val taxes = 0.18*subTotal
+                rvSneakers.adapter = CartAdapter(requireActivity(), dataList, this@CartFragment)
+                tvSubtotal.text = "Subtotal : ₹"+subTotal.toString()
+                tvTaxes.text = "Taxes and Charges : ₹"+taxes.toInt().toString()
+                tvTotalAmount.text = "Total : ₹"+(subTotal+taxes).toInt().toString()
+            }
+
+        }
     }
 
 }

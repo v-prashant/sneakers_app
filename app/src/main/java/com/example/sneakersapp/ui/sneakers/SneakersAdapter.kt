@@ -1,22 +1,24 @@
 package com.example.sneakersapp.ui.sneakers
 
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sneakersapp.R
 import com.example.sneakersapp.databinding.ItemSneakersBinding
 import com.example.sneakersapp.ui.home.SneakerItem
+import com.example.sneakersapp.ui.sneakers_details.SneakerDetailsFragment
 
 class SneakersAdapter(
     var context: Context,
     var dataList: ArrayList<SneakerItem>,
-    val navController: NavController?
+    val navController: NavController?,
+    val requireActivity: FragmentActivity
 ) : RecyclerView.Adapter<SneakersAdapterViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -55,7 +57,9 @@ class SneakersAdapter(
 
              root.setOnClickListener {
                   val bundle = bundleOf("sneaker" to dataList[holder.adapterPosition])
-                  navController?.navigate(R.id.detailsFragment, bundle)
+                  val dialog = SneakerDetailsFragment()
+                  dialog.arguments = bundle
+                  dialog.show(requireActivity.supportFragmentManager, "SneakerDetailsBottomSheetFragment")
              }
 
          }

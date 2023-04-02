@@ -5,13 +5,13 @@
 
 - Search feature to filter sneakers.
 
-- View the details of a selected sneaker, including its title, name, image, brand, year of release, and price.
+- View the details of a selected sneaker, including its title, name, image, size, color, and price.
 
 - Add selected sneakers to a checkout cart.
 
 - Remove items from the checkout cart.
 
-- Display all sneakers in the checkout cart with their image and price.
+- Display all sneakers in the checkout cart with its title, name, image, size, color, and price.
 
 - Display the total price of all sneakers in the checkout cart.
 
